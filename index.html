@@ -1,0 +1,264 @@
+<!doctype html>
+
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teach & Reach — SkillSwap Platformu</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --accent:#6ee7b7; /* mint */
+      --muted:#93a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-width:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #061026 0%, #071227 40%, #071026 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }.container{
+  width:100%;
+  max-width:var(--max-width);
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:28px;
+}
+.logo{
+  display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;
+}
+.logo-mark{
+  width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3dd5c6);display:flex;align-items:center;justify-content:center;color:#04202a;font-weight:800;font-size:18px;box-shadow:0 6px 18px rgba(12,20,30,0.6);
+}
+nav{display:flex;gap:18px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-weight:600}
+.cta{background:linear-gradient(90deg,var(--accent),#34c7aa);color:#04202a;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none}
+
+.hero{
+  display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;margin-bottom:32px;
+}
+.hero .title{font-size:34px;font-weight:800;line-height:1.02;margin:0 0 12px}
+.hero p{color:var(--muted);margin:0 0 20px}
+.actions{display:flex;gap:12px}
+.btn-outline{border:1px solid rgba(255,255,255,0.08);padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:700}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:0 6px 30px rgba(2,8,23,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.feature-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.feature{background:var(--card);padding:14px;border-radius:12px}
+.feature h4{margin:0 0 6px}
+.feature p{margin:0;color:var(--muted);font-size:14px}
+
+.how{display:flex;gap:16px;margin-top:26px}
+.step{flex:1;background:var(--glass);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+.step h5{margin:0 0 8px}
+
+.right-panel{display:flex;flex-direction:column;gap:14px}
+.signup{display:flex;flex-direction:column;gap:10px}
+.input{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:10px;color:inherit}
+.signup .btn{background:linear-gradient(90deg,var(--accent),#39d3b6);padding:12px;border-radius:10px;border:none;font-weight:700;color:#04202a;cursor:pointer}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}
+.testimonial{padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px}
+
+footer{margin-top:40px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px}
+footer a{color:var(--muted);text-decoration:none}
+
+/* responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;}
+  .feature-list{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start;gap:12px}
+  footer{flex-direction:column;align-items:flex-start;gap:12px}
+}
+@media (max-width:520px){
+  :root{--max-width:420px}
+  .feature-list{grid-template-columns:1fr}
+  .logo{font-size:16px}
+  .hero .title{font-size:24px}
+}
+
+/* small utility */
+.muted{color:var(--muted)}
+.pill{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.02);border-radius:999px;font-weight:700}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">T&amp;R</div>
+        <div>
+          <div>Teach &amp; Reach</div>
+          <div style="font-size:12px;color:var(--muted);font-weight:600">SkillSwap for campuses</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Özellikler</a>
+        <a href="#how">Nasıl Çalışır</a>
+        <a href="#contact">İletişim</a>
+        <a class="cta" href="#signup">Üye Ol</a>
+      </nav>
+    </header><main>
+  <section class="hero">
+    <div>
+      <h1 class="title">Teach &amp; Reach — Bilgiyi paylaş, yetenekleri yükselt</h1>
+      <p>Üniversite öğrencileri için karşılıklı beceri takası platformu. Öğret, öğren, puan kazan ve topluluk içinde büyü.</p>
+
+      <div class="actions">
+        <a class="cta" href="#signup">Hemen Başla</a>
+        <a class="btn-outline" href="#features">Detayları Gör</a>
+      </div>
+
+      <div class="card" style="margin-top:22px">
+        <strong>Öne çıkanlar</strong>
+        <div class="feature-list">
+          <div class="feature">
+            <h4>Hızlı Eşleştirme</h4>
+            <p>İhtiyacına göre akran öğretmenlerle eşleş.</p>
+          </div>
+          <div class="feature">
+            <h4>Puan Sistemi</h4>
+            <p>Öğret ve puan kazan, puanla başkalarından ders al.</p>
+          </div>
+          <div class="feature">
+            <h4>Güvenli Geribildirim</h4>
+            <p>Öğrenme süreçlerini değerlendir ve gelişimi takip et.</p>
+          </div>
+        </div>
+
+        <div class="how">
+          <div class="step">
+            <h5>1. Profili Oluştur</h5>
+            <p class="muted">Kısa bir profil, yeteneklerini ve öğrenmek istediklerini yaz.</p>
+          </div>
+          <div class="step">
+            <h5>2. Eşleştir</h5>
+            <p class="muted">Aynı ilgi alanındaki öğretmenlerle hızlıca bağlantı kur.</p>
+          </div>
+          <div class="step">
+            <h5>3. Takas Et</h5>
+            <p class="muted">Ders ver, puan kazan, başkalarından ücretsiz/indirimli ders al.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <aside class="right-panel">
+      <div class="card">
+        <strong>Kayıt Olmak Çok Kolay</strong>
+        <p class="muted">Üniversite e-postanla kaydol. Topluluk doğrulaması ile güvenli öğrenme.</p>
+
+        <form id="signup" class="signup" onsubmit="event.preventDefault();alert('Kayıt simülasyonu: form gönderildi.')">
+          <input class="input" type="text" placeholder="Adın ve Soyadın" required />
+          <input class="input" type="email" placeholder="üniversite@ogrenci.edu.tr" required />
+          <input class="input" type="text" placeholder="Öğrenmek istediğin / Öğretebildiğin beceri" />
+          <button class="btn" type="submit">Üye Ol ve Denemeye Başla</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <strong>Topluluk Görünümü</strong>
+        <div class="cards">
+          <div class="testimonial">
+            <strong>Saruhan, Bilgisayar Müh.</strong>
+            <p class="muted">"Front-end konusunda ders veriyorum; bunun karşılığında matematik dersi aldım. Harika bir denge!"</p>
+          </div>
+          <div class="testimonial">
+            <strong>= ""Kerem, İşletme</strong>
+            <p class="muted">"Küçük grup seansları sayesinde sunum becerilerim gelişti."</p>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </section>
+
+  <section id="features" style="margin-top:10px">
+    <div class="card">
+      <h3>Özellikler</h3>
+      <p class="muted">Teach &amp; Reach, üniversite öğrencileri için tasarlanmış güvenli ve etkileşimli bir beceri takas platformudur.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:14px">
+        <div class="pill">Kampüs Doğrulaması</div>
+        <div class="pill">Puan Temelli Sistem</div>
+        <div class="pill">Grup & Birebir Oturum</div>
+        <div class="pill">Geri Bildirim ve Değerlendirme</div>
+        <div class="pill">Takvim ve Rezervasyon</div>
+        <div class="pill">Mobil Uyumlu</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="how" style="margin-top:18px">
+    <div class="card">
+      <h3>Nasıl Çalışır</h3>
+      <p class="muted">Kısa örnek akış:</p>
+      <ol class="muted">
+        <li>Üye ol ve yeteneklerini ekle.</li>
+        <li>Öğrenmek istediğin konu için arama yap veya önerilenlerle eşleş.</li>
+        <li>Randevu al, ders yap ve karşılıklı değerlendirme yap.</li>
+        <li>Puanlarla topluluk içinde itibar kazan.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact" style="margin-top:18px">
+    <div class="card">
+      <h3>İletişim</h3>
+      <p class="muted">Proje ile ilgili iş birliği veya demo talebi için bize yazın.</p>
+      <form onsubmit="event.preventDefault();alert('Mesaj gönderildi (simülasyon).')">
+        <input class="input" placeholder="Adın" required />
+        <input class="input" placeholder="E-posta" required />
+        <textarea class="input" placeholder="Mesajın" rows="4"></textarea>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button class="btn" type="submit">Gönder</button>
+          <a class="btn-outline" href="#">Demo Talep Et</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 2025 Teach &amp; Reach &mdash; SkillSwap projesi</div>
+  <div>
+    <a href="#">Gizlilik</a> · <a href="#">Kullanım Koşulları</a>
+  </div>
+</footer>
+
+  </div>  <script>
+    // Küçük etkileşimler: form simülasyonları
+    // Gerçek projede API bağlanacak
+  </script></body>
+</html>
