@@ -7,133 +7,237 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#6ee7b7;
-      --muted:#93a3b8;
+    :root {
+      --bg: #000000;
+      --card: #0a0a0a;
+      --accent-yellow: #facc15;
+      --accent-orange: #fb923c;
+      --accent-blue: #38bdf8;
+      --accent-purple: #c084fc;
+      --muted: #9ca3af;
       --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      --max-width:1100px;
+      --radius: 14px;
+      --max-width: 1100px;
       color-scheme: dark;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg, #061026 0%, #071227 40%, #071026 100%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      padding:40px 20px;
-      display:flex;
-      justify-content:center;
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+      color: #e5e7eb;
+      line-height: 1.6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
     }
-    .container{
-      width:100%;
-      max-width:var(--max-width);
+    .container { width: 100%; max-width: var(--max-width); }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 18px; }
+    .logo-mark {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+      display: flex; align-items: center; justify-content: center;
+      color: #0a0a0a; font-weight: 800; font-size: 18px;
+      box-shadow: 0 6px 18px rgba(255, 255, 255, 0.05);
     }
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      margin-bottom:28px;
-      flex-wrap:wrap;
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      transition: all 0.3s ease;
     }
-    .logo{
-      display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
     }
-    .logo-mark{
-      width:44px;height:44px;border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),#3dd5c6);
-      display:flex;align-items:center;justify-content:center;
-      color:#04202a;font-weight:800;font-size:18px;
-      box-shadow:0 6px 18px rgba(12,20,30,0.6);
-    }
+    nav a:hover { color: var(--accent-blue); }
 
-    nav{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      flex-wrap:wrap;
+    .cta {
+      background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange));
+      color: #0a0a0a;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
     }
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    .cta{
-      background:linear-gradient(90deg,var(--accent),#34c7aa);
-      color:#04202a;padding:10px 14px;border-radius:10px;font-weight:700;
-      text-decoration:none;
-    }
+    .cta:hover { opacity: 0.9; }
 
-    /* mobile menu toggle */
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      color:var(--accent);
-      font-size:26px;
-      cursor:pointer;
-    }
-    @media (max-width:720px){
-      nav{display:none;width:100%;flex-direction:column;align-items:flex-start;margin-top:10px}
-      nav.active{display:flex;}
-      .menu-toggle{display:block;}
-      header{align-items:flex-start;}
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--accent-yellow);
+      font-size: 28px;
+      cursor: pointer;
     }
 
-    .hero{
-      display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;margin-bottom:32px;
+    /* --- Hero Section --- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 32px;
+      align-items: flex-start;
+      margin-bottom: 32px;
     }
-    .hero .title{font-size:34px;font-weight:800;line-height:1.02;margin:0 0 12px}
-    .hero p{color:var(--muted);margin:0 0 20px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-outline{border:1px solid rgba(255,255,255,0.08);padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:700}
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:0 6px 30px rgba(2,8,23,0.6);
-      border:1px solid rgba(255,255,255,0.03);
+    .hero .title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--accent-yellow);
     }
+    .hero p { color: var(--muted); margin-bottom: 20px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .feature-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
-    .feature{background:var(--card);padding:14px;border-radius:12px}
-    .feature h4{margin:0 0 6px}
-    .feature p{margin:0;color:var(--muted);font-size:14px}
-
-    .how{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap}
-    .step{flex:1;background:var(--glass);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .step h5{margin:0 0 8px}
-
-    .right-panel{display:flex;flex-direction:column;gap:14px}
-    .signup{display:flex;flex-direction:column;gap:10px}
-    .input{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:10px;color:inherit;width:100%}
-    .signup .btn{background:linear-gradient(90deg,var(--accent),#39d3b6);padding:12px;border-radius:10px;border:none;font-weight:700;color:#04202a;cursor:pointer;width:100%}
-
-    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}
-    .testimonial{padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px}
-
-    footer{margin-top:40px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px;flex-wrap:wrap}
-    footer a{color:var(--muted);text-decoration:none}
-
-    /* responsive adjustments */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .feature-list{grid-template-columns:repeat(2,1fr)}
-      .cards{grid-template-columns:1fr}
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s;
     }
-    @media (max-width:520px){
-      :root{--max-width:420px}
-      .feature-list{grid-template-columns:1fr}
-      .hero .title{font-size:26px}
-      .cta,.btn-outline{width:100%;text-align:center}
+    .btn-outline:hover {
+      color: var(--accent-purple);
+      border-color: var(--accent-purple);
     }
 
-    .muted{color:var(--muted)}
-    .pill{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.02);border-radius:999px;font-weight:700}
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 22px; }
+    .feature {
+      background: var(--card);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: 0.2s;
+    }
+    .feature:hover { border-color: var(--accent-blue); }
+    .feature h4 { margin: 0 0 6px; color: var(--accent-orange); }
+    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .how { display: flex; gap: 16px; margin-top: 26px; flex-wrap: wrap; }
+    .step {
+      flex: 1;
+      background: var(--glass);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .step h5 { margin: 0 0 8px; color: var(--accent-blue); }
+
+    .right-panel { display: flex; flex-direction: column; gap: 14px; }
+    .signup { display: flex; flex-direction: column; gap: 10px; }
+    .input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.04);
+      padding: 14px;
+      border-radius: 10px;
+      color: inherit;
+      width: 100%;
+      font-size: 16px;
+    }
+    .signup .btn {
+      background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow));
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      color: #0a0a0a;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+    .signup .btn:hover { opacity: 0.9; }
+
+    .cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 22px; }
+    .testimonial {
+      padding: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius: 12px;
+    }
+
+    footer {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    footer a:hover { color: var(--accent-purple); }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; gap: 20px; }
+      .feature-list { grid-template-columns: repeat(2,1fr); }
+      .cards { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .menu-toggle { display: block; }
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background: #0a0a0a;
+        padding: 12px;
+        border-radius: 10px;
+        margin-top: 8px;
+      }
+      nav.active { display: flex; }
+      nav a { padding: 10px 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .hero .title { font-size: 26px; }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 24px 16px; }
+      .feature-list { grid-template-columns: 1fr; }
+      .how { flex-direction: column; }
+      .cards { grid-template-columns: 1fr; }
+      .cta, .btn-outline { width: 100%; text-align: center; }
+    }
+
+    .muted { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--accent-yellow);
+    }
   </style>
 </head>
 <body>
@@ -160,8 +264,8 @@
     <main>
       <section class="hero">
         <div>
-          <h1 class="title">Teach & Reach — Share knowledge, elevate skills</h1>
-          <p>A peer-to-peer skill exchange platform for university students. Teach, learn, earn points, and grow within the community.</p>
+          <h1 class="title">Teach & Reach — Share Knowledge, Elevate Skills</h1>
+          <p>A skill-sharing platform built for university students. Teach, learn, earn points, and grow together.</p>
 
           <div class="actions">
             <a class="cta" href="#signup">Get Started</a>
@@ -173,21 +277,21 @@
             <div class="feature-list">
               <div class="feature">
                 <h4>Quick Matching</h4>
-                <p>Find peer mentors who fit your learning goals.</p>
+                <p>Find peers that match your learning goals.</p>
               </div>
               <div class="feature">
                 <h4>Point System</h4>
-                <p>Teach and earn points, use them to learn new skills.</p>
+                <p>Teach, earn points, and use them to learn new skills.</p>
               </div>
               <div class="feature">
                 <h4>Secure Feedback</h4>
-                <p>Rate and review sessions to improve continuously.</p>
+                <p>Rate sessions to continuously improve the community.</p>
               </div>
             </div>
 
             <div class="how">
               <div class="step">
-                <h5>1. Create a Profile</h5>
+                <h5>1. Create Profile</h5>
                 <p class="muted">Add your skills and topics you want to learn.</p>
               </div>
               <div class="step">
@@ -196,7 +300,7 @@
               </div>
               <div class="step">
                 <h5>3. Exchange</h5>
-                <p class="muted">Teach lessons, earn points, and learn from others.</p>
+                <p class="muted">Teach lessons, earn points, and grow together.</p>
               </div>
             </div>
           </div>
@@ -204,14 +308,14 @@
 
         <aside class="right-panel">
           <div class="card">
-            <strong>Sign Up in Seconds</strong>
-            <p class="muted">Register with your university email. Safe and verified community learning.</p>
+            <strong>Sign Up Instantly</strong>
+            <p class="muted">Join with your university email. Safe, verified community learning.</p>
 
             <form id="signup" class="signup" onsubmit="event.preventDefault();alert('Signup simulation: form submitted.')">
               <input class="input" type="text" placeholder="Full Name" required />
               <input class="input" type="email" placeholder="university@student.edu" required />
-              <input class="input" type="text" placeholder="Skill to learn or teach" />
-              <button class="btn" type="submit">Join & Start Now</button>
+              <input class="input" type="text" placeholder="Skill to teach or learn" />
+              <button class="btn" type="submit">Join Now</button>
             </form>
           </div>
 
@@ -220,19 +324,19 @@
             <div class="cards">
               <div class="testimonial">
                 <strong>Saruhan, Computer Engineering</strong>
-                <p class="muted">"I teach front-end development and took math lessons in return — great balance!"</p>
+                <p class="muted">"I teach frontend and take math lessons in return — great balance!"</p>
               </div>
               <div class="testimonial">
-                <strong>Çınar, Electrical and Electronics Engineering</strong>
-                <p class="muted">"Small group sessions helped me improve my presentation skills."</p>
+                <strong>Çınar, Electrical and Electronical Engineering</strong>
+                <p class="muted">"I teach basic circuit design and get piano lessons in return — perfect exchange!"</p>
               </div>
               <div class="testimonial">
                 <strong>Öykü, Interior Architecture</strong>
-                <p class="muted">"I teach home architecture design."</p>
+                <p class="muted">"I give AutoCAD, Photoshop lessons and learn photography — creativity both ways!"</p>
               </div>
               <div class="testimonial">
-                <strong>Ecren, English Language and Literature</strong>
-                <p class="muted">"I give lectures about English literature."</p>
+                <strong>Ecren, English Literature</strong>
+                <p class="muted">"I help with writing and get Spanish lessons in return — words meet worlds!"</p>
               </div>
             </div>
           </div>
@@ -242,13 +346,13 @@
       <section id="features" style="margin-top:10px">
         <div class="card">
           <h3>Features</h3>
-          <p class="muted">Teach & Reach is a secure, interactive skill exchange platform designed for university students.</p>
+          <p class="muted">Teach & Reach is an interactive, secure platform for university students to exchange skills.</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:14px">
             <div class="pill">Campus Verification</div>
-            <div class="pill">Point-Based System</div>
-            <div class="pill">Group & One-on-One Sessions</div>
+            <div class="pill">Point System</div>
+            <div class="pill">Group & 1-on-1 Sessions</div>
             <div class="pill">Feedback & Ratings</div>
-            <div class="pill">Calendar & Booking</div>
+            <div class="pill">Scheduling Tools</div>
             <div class="pill">Mobile Friendly</div>
           </div>
         </div>
@@ -257,12 +361,11 @@
       <section id="how" style="margin-top:18px">
         <div class="card">
           <h3>How It Works</h3>
-          <p class="muted">A simple workflow example:</p>
           <ol class="muted" style="padding-left:18px">
             <li>Sign up and add your skills.</li>
-            <li>Search for topics you want to learn or accept matches.</li>
-            <li>Schedule, complete your session, and exchange feedback.</li>
-            <li>Earn points and gain community reputation.</li>
+            <li>Find peers or accept matching offers.</li>
+            <li>Schedule, complete sessions, and give feedback.</li>
+            <li>Earn points and build your reputation.</li>
           </ol>
         </div>
       </section>
@@ -270,8 +373,8 @@
       <section id="contact" style="margin-top:18px">
         <div class="card">
           <h3>Contact</h3>
-          <p class="muted">For collaboration or demo requests, send us a message.</p>
-          <form id="signup" class="signup" onsubmit="event.preventDefault();alert('Message sent (simulation).')">
+          <p class="muted">For collaborations or demo requests, send us a message.</p>
+          <form id="contact-form" class="signup" onsubmit="event.preventDefault();alert('Message sent (simulation).')">
             <input class="input" placeholder="Your Name" required />
             <input class="input" placeholder="Email" required />
             <textarea class="input" placeholder="Your Message" rows="4"></textarea>
@@ -293,7 +396,6 @@
   </div>
 
   <script>
-    // Simple menu toggle for mobile
     const menuButton = document.querySelector('.menu-toggle');
     const nav = document.querySelector('nav');
     menuButton.addEventListener('click', () => nav.classList.toggle('active'));
